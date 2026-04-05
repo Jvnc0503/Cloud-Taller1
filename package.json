@@ -1,0 +1,14 @@
+{
+  "name": "cloud-taller1",
+  "version": "1.0.0",
+  "description": "Simple REST API with Node.js and SQLite3",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "sqlite3": "^5.1.7"
+  }
+}
