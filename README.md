@@ -14,6 +14,7 @@ The API runs on port `3000` by default. Set `PORT` if you want another port.
 - `GET /health`
 - `GET /items`
 - `GET /items/:id`
+- `PATCH /items/:id`
 - `POST /items` with JSON body `{ "name": "Test" }`
 - `DELETE /items/:id`
 
@@ -26,3 +27,4 @@ curl http://localhost:3000/items
 ```
 
 SQLite creates `app.db` automatically on first run.
+
