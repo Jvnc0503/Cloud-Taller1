@@ -35,20 +35,26 @@ app.get('/items/:id', (req, res) => {
 
 // Update item by ID
 app.patch('/items/:id', (req, res) => {
-    db.patch('UPDATE items SET name = ? WHERE id = ?', [req.body.name, req.params.id], function (err) {
-      if (err) {
+  const { name } = req.body;
+
+  if (!name || !name.trim()) {
+    return res.status(400).json({ error: 'name is required' });
+  }
+
+  db.run('UPDATE items SET name = ? WHERE id = ?', [name.trim(), req.params.id], function (err) {
+    if (err) {
+      return res.status(500).json({ error: 'Database error' });
+    }
+    if (this.changes === 0) {
+      return res.status(404).json({ error: 'Item not found' });
+    }
+    db.get('SELECT * FROM items WHERE id = ?', [req.params.id], (selectErr, row) => {
+      if (selectErr) {
         return res.status(500).json({ error: 'Database error' });
       }
-      if (this.changes === 0) {
-        return res.status(404).json({ error: 'Item not found' });
-      }
-      db.get('SELECT * FROM items WHERE id = ?', [req.params.id], (selectErr, row) => {
-        if (selectErr) {
-          return res.status(500).json({ error: 'Database error' });
-        }
-        res.json(row);
-      });
+      res.json(row);
     });
+  });
 });
 
 // Create new item
