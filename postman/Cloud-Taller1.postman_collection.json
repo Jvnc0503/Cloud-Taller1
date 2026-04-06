@@ -1,0 +1,180 @@
+{
+  "info": {
+    "_postman_id": "f8e4db6f-bc01-4c69-8f2c-6c2dd5e2d0a1",
+    "name": "Cloud-Taller1 API",
+    "description": "Postman collection for the Cloud-Taller1 REST API.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "copilot"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "GET Health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://{{ipAddress}}:{{port}}/health",
+              "protocol": "http",
+              "host": [
+                "{{ipAddress}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "health"
+              ]
+            },
+            "description": "Check whether the API is running."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Items",
+      "item": [
+        {
+          "name": "GET All Items",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://{{ipAddress}}:{{port}}/items",
+              "protocol": "http",
+              "host": [
+                "{{ipAddress}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "items"
+              ]
+            },
+            "description": "Fetch all items in descending ID order."
+          },
+          "response": []
+        },
+        {
+          "name": "GET Item by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://{{ipAddress}}:{{port}}/items/{{id}}",
+              "protocol": "http",
+              "host": [
+                "{{ipAddress}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "items",
+                "{{id}}"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "Fetch one item by numeric ID. Replace the id variable before sending."
+          },
+          "response": []
+        },
+        {
+          "name": "POST Create Item",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"demo item\"\n}"
+            },
+            "url": {
+              "raw": "http://{{ipAddress}}:{{port}}/items",
+              "protocol": "http",
+              "host": [
+                "{{ipAddress}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "items"
+              ]
+            },
+            "description": "Create a new item with a name."
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH Update Item",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"updated item name\"\n}"
+            },
+            "url": {
+              "raw": "http://{{ipAddress}}:{{port}}/items/{{id}}",
+              "protocol": "http",
+              "host": [
+                "{{ipAddress}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "items",
+                "{{id}}"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "Update an item name by ID. Replace the id variable before sending."
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Item",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://{{ipAddress}}:{{port}}/items/{{id}}",
+              "protocol": "http",
+              "host": [
+                "{{ipAddress}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "items",
+                "{{id}}"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "Delete an item by ID. Replace the id variable before sending."
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

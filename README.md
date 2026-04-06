@@ -43,6 +43,12 @@ curl -X POST http://localhost:3000/items -H 'Content-Type: application/json' -d 
 curl http://localhost:3000/items
 ```
 
+## Postman
+
+Import the collection from `postman/Cloud-Taller1.postman_collection.json` and the environment from `postman/Cloud-Taller1.local.postman_environment.json`.
+
+Update the `ipAddress` variable in the environment to point at the machine running the API. The default port is `3000`.
+
 SQLite creates `app.db` automatically on first run.
 
 ## Notes
