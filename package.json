@@ -6,7 +6,7 @@
   "type": "commonjs",
   "scripts": {
     "start": "node server.js",
-    "rebuild:sqlite3": "npm rebuild sqlite3 --build-from-source"
+    "rebuild:sqlite3": "npm_config_build_from_source=true npm rebuild sqlite3"
   },
   "dependencies": {
     "express": "^4.19.2",
